@@ -1,0 +1,52 @@
+name: My Envio Indexer
+networks:
+  - id: 1
+    start_block: 0
+    contracts:
+      - name: MembershipNFT
+        address:
+          - 0xb49e4420eA6e35F98060Cd133842DbeA9c27e479
+        handler: src/EventHandlers.ts
+        events:
+          - event: AdminChanged(address previousAdmin, address newAdmin)
+            requiredEntities:
+              - name: EventsSummary
+          - event: ApprovalForAll(address indexed account, address indexed operator, bool approved)
+            requiredEntities:
+              - name: EventsSummary
+          - event: BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId)
+            requiredEntities:
+              - name: EventsSummary
+          - event: BeaconUpgraded(address indexed beacon)
+            requiredEntities:
+              - name: EventsSummary
+          - event: Initialized(uint8 version)
+            requiredEntities:
+              - name: EventsSummary
+          # - event: MerkleUpdated(bytes32 , bytes32 )
+          #   requiredEntities:
+          #     - name: EventsSummary
+          - event: MetadataUpdate(uint256 _tokenId)
+            requiredEntities:
+              - name: EventsSummary
+          - event: MintingPaused(bool isPaused)
+            requiredEntities:
+              - name: EventsSummary
+          - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+            requiredEntities:
+              - name: EventsSummary
+          - event: TokenLocked(uint256 indexed _tokenId, uint256 until)
+            requiredEntities:
+              - name: EventsSummary
+          - event: TransferBatch(address indexed operator, address indexed from, address indexed to, uint256[] ids, uint256[] values)
+            requiredEntities:
+              - name: EventsSummary
+          - event: TransferSingle(address indexed operator, address indexed from, address indexed to, uint256 id, uint256 value)
+            requiredEntities:
+              - name: EventsSummary
+          - event: URI(string value, uint256 indexed id)
+            requiredEntities:
+              - name: EventsSummary
+          - event: Upgraded(address indexed implementation)
+            requiredEntities:
+              - name: EventsSummary

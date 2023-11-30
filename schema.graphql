@@ -1,0 +1,133 @@
+type EventsSummary {
+  id: ID!
+  adminChanged: [AdminChanged!]! @derivedFrom(field: "eventsSummary")
+  adminChangedsCount: BigInt!
+  approvalForAll: [ApprovalForAll!]! @derivedFrom(field: "eventsSummary")
+  approvalForAllsCount: BigInt!
+  batchMetadataUpdate: [BatchMetadataUpdate!]!
+    @derivedFrom(field: "eventsSummary")
+  batchMetadataUpdatesCount: BigInt!
+  beaconUpgraded: [BeaconUpgraded!]! @derivedFrom(field: "eventsSummary")
+  beaconUpgradedsCount: BigInt!
+  initialized: [Initialized!]! @derivedFrom(field: "eventsSummary")
+  initializedsCount: BigInt!
+  # merkleUpdated: [MerkleUpdated!]! @derivedFrom(field: "eventsSummary")
+  merkleUpdatedsCount: BigInt!
+  metadataUpdate: [MetadataUpdate!]! @derivedFrom(field: "eventsSummary")
+  metadataUpdatesCount: BigInt!
+  mintingPaused: [MintingPaused!]! @derivedFrom(field: "eventsSummary")
+  mintingPausedsCount: BigInt!
+  ownershipTransferred: [OwnershipTransferred!]!
+    @derivedFrom(field: "eventsSummary")
+  ownershipTransferredsCount: BigInt!
+  tokenLocked: [TokenLocked!]! @derivedFrom(field: "eventsSummary")
+  tokenLockedsCount: BigInt!
+  transferBatch: [TransferBatch!]! @derivedFrom(field: "eventsSummary")
+  transferBatchsCount: BigInt!
+  transferSingle: [TransferSingle!]! @derivedFrom(field: "eventsSummary")
+  transferSinglesCount: BigInt!
+  uRI: [URI!]! @derivedFrom(field: "eventsSummary")
+  uRIsCount: BigInt!
+  upgraded: [Upgraded!]! @derivedFrom(field: "eventsSummary")
+  upgradedsCount: BigInt!
+}
+
+type AdminChanged {
+  id: ID!
+  previousAdmin: String!
+  newAdmin: String!
+  eventsSummary: String!
+}
+
+type ApprovalForAll {
+  id: ID!
+  account: String!
+  operator: String!
+  approved: Boolean!
+  eventsSummary: String!
+}
+
+type BatchMetadataUpdate {
+  id: ID!
+  _fromTokenId: BigInt!
+  _toTokenId: BigInt!
+  eventsSummary: String!
+}
+
+type BeaconUpgraded {
+  id: ID!
+  beacon: String!
+  eventsSummary: String!
+}
+
+type Initialized {
+  id: ID!
+  version: BigInt!
+  eventsSummary: String!
+}
+
+# type MerkleUpdated {
+#   id: ID!
+#   : String!
+#   : String!
+#   eventsSummary: String!
+# }
+
+type MetadataUpdate {
+  id: ID!
+  _tokenId: BigInt!
+  eventsSummary: String!
+}
+
+type MintingPaused {
+  id: ID!
+  isPaused: Boolean!
+  eventsSummary: String!
+}
+
+type OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+  eventsSummary: String!
+}
+
+type TokenLocked {
+  id: ID!
+  _tokenId: BigInt!
+  until: BigInt!
+  eventsSummary: String!
+}
+
+type TransferBatch {
+  id: ID!
+  operator: String!
+  from: String!
+  to: String!
+  ids: [BigInt!]!
+  values: [BigInt!]!
+  eventsSummary: String!
+}
+
+type TransferSingle {
+  id: ID!
+  operator: String!
+  from: String!
+  to: String!
+  event_id: BigInt!
+  value: BigInt!
+  eventsSummary: String!
+}
+
+type URI {
+  id: ID!
+  value: String!
+  event_id: BigInt!
+  eventsSummary: String!
+}
+
+type Upgraded {
+  id: ID!
+  implementation: String!
+  eventsSummary: String!
+}
